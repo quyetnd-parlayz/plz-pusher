@@ -2,4 +2,6 @@
 .dockerignore
 .git
 .gitignore
-packages
+bin
+include
+lib

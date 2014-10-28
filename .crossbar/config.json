@@ -56,11 +56,9 @@
                      "realm": "public",
                      "role": "pusher",
                      "options": {
-                        "key": "congcong",
-                        "secret": "earth spirit feed kinh vlol",
                         "post_body_limit": 8192,
                         "timestamp_delta_limit": 10,
-                        "require_ip": ["192.168.1.1/255.255.255.0", "127.0.0.1"],
+                        "require_ip": ["172.17.0.0/255.255.0.0", "127.0.0.1"],
                         "require_tls": false
                      }
                   }

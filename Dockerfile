@@ -1,5 +1,7 @@
-FROM python:2:onbuild
+FROM python:2-onbuild
 
-RUN pip install crossbar[tls,msgpack,manhole,system]
+EXPOSE 8080
 
-CMD ['crossbar', 'start']
+WORKDIR /usr/src/app
+
+CMD ["crossbar", "start"]
