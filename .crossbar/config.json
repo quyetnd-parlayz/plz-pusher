@@ -1,23 +1,33 @@
-
 {
-   "controller": {
-   },
    "workers": [
       {
          "type": "router",
+         "options": {
+            "pythonpath": [".."]
+         },
          "realms": [
             {
                "name": "public",
                "roles": [
                   {
                      "name": "anonymous",
+                     "authorizer": "vn.plz.auth"
+                  },
+                  {
+                     "name": "authenticator",
                      "permissions": [
                         {
-                           "uri": "*",
-                           "publish": false,
-                           "subscribe": true,
-                           "call": false,
-                           "register": false
+                           "uri": "com.example.authenticate",
+                           "register": true
+                        }
+                     ]
+                  },
+                  {
+                     "name": "authorizer",
+                     "permissions": [
+                        {
+                           "uri": "com.example.auth",
+                           "register": true
                         }
                      ]
                   },
@@ -26,10 +36,7 @@
                      "permissions": [
                         {
                            "uri": "*",
-                           "publish": true,
-                           "subscribe": true,
-                           "call": true,
-                           "register": true
+                           "publish": true
                         }
                      ]
                   }
@@ -56,15 +63,14 @@
                      "realm": "public",
                      "role": "pusher",
                      "options": {
-                        "post_body_limit": 8192,
                         "timestamp_delta_limit": 10,
-                        "require_ip": ["172.17.0.0/255.255.0.0", "127.0.0.1"],
+                        "require_ip": ["192.168.10.0/255.255.255.0", "172.17.0.0/255.255.0.0", "127.0.0.1"],
                         "require_tls": false
                      }
                   }
                }
             }
-         ]
+         ],
       }
    ]
 }
